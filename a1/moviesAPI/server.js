@@ -5,7 +5,7 @@
  * (including web sites) or distributed to other students.
  *
  * Name: David Nguyen    Student ID: 104458179   Date: May 26, 2023
- * Cyclic Link:
+ * Cyclic Link: https://tough-pig-tiara.cyclic.app/
  *
  ********************************************************************************/
 
@@ -30,12 +30,12 @@ db.initialize(process.env.MONGODB_CONN_STRING)
         console.log(err);
     });
 
-// HOME PAGE
+// HOME PAGE *works
 app.get("/", (req, res) => {
     res.json({message: "API Listening"});
 });
 
-// ADD NEW MOVIE
+// ADD NEW MOVIE *works
 app.post("/api/movies", (req, res) => {
     db.addNewMovie(req.body)
         .then((movie) => {
@@ -46,7 +46,7 @@ app.post("/api/movies", (req, res) => {
         });
 });
 
-// GET MOVIES
+// GET MOVIES *works
 app.get("/api/movies", (req, res) => {
     const {page, perPage, title} = req.query;
     db.getAllMovies(page, perPage, title)
@@ -58,7 +58,7 @@ app.get("/api/movies", (req, res) => {
         });
 });
 
-// GET MOVIE
+// GET MOVIE *works
 app.get("/api/movies/:id", (req, res) => {
     const {id} = req.params;
     db.getMovieById(id)
@@ -70,7 +70,7 @@ app.get("/api/movies/:id", (req, res) => {
         });
 });
 
-// UPDATE MOVIE
+// UPDATE MOVIE *works
 app.put("/api/movies/:id", (req, res) => {
     const {id} = req.params;
     const updatedData = req.body;
@@ -83,7 +83,7 @@ app.put("/api/movies/:id", (req, res) => {
         });
 });
 
-// REMOVE MOVIE
+// REMOVE MOVIE *works
 app.delete("/api/movies/:id", (req, res) => {
     const {id} = req.params;
     db.deleteMovieById(id)

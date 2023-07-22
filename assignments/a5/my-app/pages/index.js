@@ -5,7 +5,7 @@
  *  (including web sites) or distributed to other students.
  *
  *  Name: David Nguyen Student ID: 104458179 Date: July 21, 2023
- *
+ * //
  ********************************************************************************/
 import React from "react";
 import {Image, Row, Col} from "react-bootstrap";

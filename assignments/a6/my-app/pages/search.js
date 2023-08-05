@@ -4,6 +4,7 @@ import {useRouter} from "next/router";
 import {useForm} from "react-hook-form";
 import { Atom, useAtom } from "jotai";
 import { searchHistoryAtom } from "@/store";
+import { addToHistory } from "@/lib/userData";
 
 export default function AdvancedSearch() {
 
@@ -26,7 +27,7 @@ export default function AdvancedSearch() {
 
     const router = useRouter();
 
-    const submitForm = (data) => {
+    const submitForm = async (data) => {
         let queryString = "";
 
         if (data.searchBy === "tags") {
@@ -49,7 +50,7 @@ export default function AdvancedSearch() {
         queryString += `&isHighlight=${data.isHighlight || "false"}`;
         queryString += `&q=${data.searchQuery}`;
 
-        setSearchHistory(current => [...current, queryString]);
+        setSearchHistory(await addToHistory(queryString))  
         router.push(`/artwork?${queryString}`);
     };
 

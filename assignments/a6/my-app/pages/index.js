@@ -5,6 +5,10 @@
  *  (including web sites) or distributed to other students.
  *
  *  Name: David Nguyen Student ID: 104458179 Date: Aug 4, 2023
+ * 
+ * API Link: https://user-api-rkjk.onrender.com
+ * Vercel App Link: https://web-422-delta.vercel.app/
+ * 
  * //
  ********************************************************************************/
 import React from "react";

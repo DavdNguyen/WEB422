@@ -6,20 +6,16 @@ import {Container, Row, Col, Card} from "react-bootstrap";
 
 export default function Favourites() {
     const [favouritesList] = useAtom(favouritesAtom);
-    let [ itemList, setItemList ] = useState([]);
-
-    useEffect(() => {
-        setItemList(favouritesList);
-    }, []);
+    if(!favouritesList) return null;
   
     return (
         <>
             <Container>
-                {itemList.length > 0 ? 
+                {favouritesList.length > 0 ? 
                 // if you have favourites
                 (
                     <Row className="gy-4">
-                        {itemList.map((itemObjectID) => (
+                        {favouritesList.map((itemObjectID) => (
                             <Col lg={3} key={itemObjectID}>
                                 <ArtworkCard objectID={itemObjectID} />
                             </Col>
